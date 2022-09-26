@@ -1,20 +1,58 @@
 {
-    "name": "dufei/libdocker",
-    "description": "A PHP Library for the Docker Engine API",
-    "type": "library",
-    "require": {
-        "php": ">=7.3",
-        "khs1994/curl": "~18.06.0",
-        "pimple/pimple": "^3.0",
-        "ext-json": "*",
-        "ext-curl": "*"
+  "name": "feidu/docker",
+  "description": "A PHP Library for the Docker Engine API",
+  "keywords": [
+    "sdk",
+    "docker",
+    "devops"
+  ],
+  "homepage": "https://github.com/glock-fei/libdocker",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.3",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "pimple/pimple": "^3.0",
+    "khs1994/curl": "~18.06.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Docker\\": "src/Docker/"
     },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Dufei\\Libdocker\\": "src/"
-        }
+    "files": [
+      "src/Docker/Kernel/Support/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Docker\\Tests\\": "tests/Docker/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "fmt": "php-cs-fixer fix",
+    "test": "phpunit"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "18.06-dev"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "laravel": {
+      "providers": [
+        "Docker\\Kernel\\ServiceProvider"
+      ],
+      "aliases": {
+        "Docker": "Docker\\Kernel\\Facade"
+      }
+    }
+  }
 }
