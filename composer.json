@@ -1,68 +1,24 @@
 {
-  "name": "khs1994/docker",
-  "description": "A PHP Library for the Docker Engine API",
-  "keywords": [
-    "sdk",
-    "docker",
-    "devops"
-  ],
-  "homepage": "https://github.com/khs1994-docker/libdocker",
-  "type": "library",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "khs1994",
-      "email": "khs1994@khs1994.com",
-      "homepage": "https://khs1994.com"
-    }
-  ],
-  "support": {
-    "issues": "https://github.com/khs1994-docker/libdocker/issues"
-  },
-  "require": {
-    "php": ">=7.3",
-    "ext-json": "*",
-    "ext-curl": "*",
-    "pimple/pimple": "^3.0",
-    "khs1994/curl": "~18.06.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^9.0"
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "sort-packages": true
-  },
-  "autoload": {
-    "psr-4": {
-      "Docker\\": "src/Docker/"
+    "name": "glock-fei/docker",
+    "description": "A PHP Library for the Docker Engine API",
+    "type": "library",
+    "require": {
+        "php": "7.3",
+        "khs1994/curl": "18.06.0",
+        "pimple/pimple": "3.0",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
-    "files": [
-      "src/Docker/Kernel/Support/helpers.php"
-    ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Docker\\Tests\\": "tests/Docker/"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "scripts": {
-    "fmt": "php-cs-fixer fix",
-    "test": "phpunit"
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "18.06-dev"
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "GlockFei\\Docker\\": "src/"
+        }
     },
-    "laravel": {
-      "providers": [
-        "Docker\\Kernel\\ServiceProvider"
-      ],
-      "aliases": {
-        "Docker": "Docker\\Kernel\\Facade"
-      }
-    }
-  }
+    "authors": [
+        {
+            "name": "glock-fei"
+        }
+    ],
+    "minimum-stability": "dev"
 }

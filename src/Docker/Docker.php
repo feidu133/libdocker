@@ -28,6 +28,7 @@ use Pimple\Container as ServiceContainer;
  * @property Volume\Client        $volume
  * @property Curl                 $curl
  * @property string               $docker_host
+ * @property array                $docker_options
  *
  * @see     https://docs.docker.com/engine/api/v1.37/
  */
@@ -80,6 +81,7 @@ class Docker extends ServiceContainer
     public function __construct(array $option, Curl $curl)
     {
         $this['docker_host'] = $option['DOCKER_HOST'];
+        $this['docker_options'] = $option;
 
         if (1 === $option['DOCKER_TLS_VERIFY']) {
             $curl->docker($option['DOCKER_CERT_PATH']);
