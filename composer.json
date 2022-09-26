@@ -1,24 +1,19 @@
 {
-    "name": "glock-fei/docker",
+    "name": "dufei/libdocker",
     "description": "A PHP Library for the Docker Engine API",
     "type": "library",
     "require": {
-        "php": "7.3",
-        "khs1994/curl": "18.06.0",
-        "pimple/pimple": "3.0",
-        "ext-curl": "*",
-        "ext-json": "*"
+        "php": ">=7.3",
+        "khs1994/curl": "~18.06.0",
+        "pimple/pimple": "^3.0",
+        "ext-json": "*",
+        "ext-curl": "*"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "GlockFei\\Docker\\": "src/"
+            "Dufei\\Libdocker\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "glock-fei"
-        }
-    ],
     "minimum-stability": "dev"
 }
