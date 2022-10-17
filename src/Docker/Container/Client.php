@@ -2532,7 +2532,7 @@ class Client
      */
     public function startExec(?string $id, bool $detach = false, bool $tty = false)
     {
-        $url = self::$base_url.'/exec/'.($id ?? $this->container_id).'/start';
+        $url = rtrim(self::$base_url, self::TYPE).'/exec/'.($id ?? $this->container_id).'/start';
 
         $data = [
             'Detach' => $detach,
@@ -2556,7 +2556,7 @@ class Client
             'w' => $width,
         ];
 
-        $url = self::$base_url.'/exec/'.($id ?? $this->container_id).'/resize?'.http_build_query($data);
+        $url = rtrim(self::$base_url, self::TYPE).'/exec/'.($id ?? $this->container_id).'/resize?'.http_build_query($data);
 
         return self::$curl->post($url);
     }
@@ -2568,7 +2568,7 @@ class Client
      */
     public function inspectExec(string $id)
     {
-        $url = self::$base_url.'/exec/'.$id.'/json';
+        $url = rtrim(self::$base_url, self::TYPE).'/exec/'.$id.'/json';
 
         return self::$curl->get($url);
     }
